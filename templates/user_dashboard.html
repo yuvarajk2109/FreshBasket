@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="header-left">
+            Your Orders
+        </div>
+        <div class="header-right">
+            <a href="{{ url_for('shop') }}"><button>Shop</button></a>
+            <a href="{{ url_for('items') }}"><button>Browse Items</button></a>
+            <a href="{{ url_for('cart') }}"><button>Go To Cart</button></a>
+            <a href="{{ url_for('logout') }}"><button style="background-color: rgb(224, 31, 31);">Logout</button></a>
+        </div>
+</header>
+<table>
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Items</th>
+            <th>Total Price</th>
+            <th>Order Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>
+                    <ol>
+                        {% for item in order.myitems.split(',') %}
+                            <li>{{ item }}</li>
+                        {% endfor %}
+                    </ol>
+                </td>
+                <td>${{ order.total_price }}</td>
+                <td>{{ order.order_date }}</td>
+                <td>{{ order.status }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+</body>
+</html>
