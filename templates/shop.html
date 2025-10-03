@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <div>
+            <div class="header-background">
+                <h1 class="header-title">Welcome to the Shop</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <h2>Options</h2>
+            <a href="{{ url_for('items') }}"><button>Browse Items</button></a>
+            <a href="{{ url_for('cart') }}"><button>Go to Cart</button></a>
+            <a href="{{ url_for('user_dashboard') }}"><button>User Dashboard</button></a>
+            <a href="{{ url_for('logout') }}"><button style="background-color: rgb(224, 31, 31)">Logout</button></a>
+    </div>
+
+</body>
+</html>
